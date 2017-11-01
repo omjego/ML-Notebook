@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-m = 500
+m = 5
 n = 2
 x = np.random.uniform(-4, 4, m)
 y = x + np.random.standard_normal( m ) + 2.5
@@ -19,7 +19,7 @@ def cost(x, y, theta):
 alpha = 0.1   # learning rate
 theta = np.array([0, 0])  # initial values of theta
 iterations = 1000  # number of iterations
-
+print theta.T
 for i in range(iterations):
     # update theta 0
     partial = 0.0
@@ -44,3 +44,11 @@ plt.xlabel('x')
 plt.ylabel('y')
 print theta
 plt.show()
+
+def gradient_descent(theta, x, y, alpha):
+    iterations = 100
+    i = 0
+    while i < iterations :
+        change = 1 / float(iterations) * (theta.T)
+        theta = theta - alpha * change
+        i += 1
